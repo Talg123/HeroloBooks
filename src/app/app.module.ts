@@ -14,7 +14,7 @@ import { CardBookComponent } from './main-page/card-book/card-book.component';
   declarations: [
     AppComponent,
     MainPageComponent,
-    CardBookComponent
+    CardBookComponent,
   ],
   imports: [
     BrowserModule,
