@@ -8,6 +8,7 @@ import { ApiService } from '../services/api.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { CardBookComponent } from './main-page/card-book/card-book.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CardBookComponent } from './main-page/card-book/card-book.component';
     AppComponent,
     MainPageComponent,
     CardBookComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-book',
@@ -8,8 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardBookComponent implements OnInit {
 
   constructor() { }
-  @Input() books: any;
-  ngOnInit() {
-  }
 
+  @Input() books: any;
+  @Output() edit = new EventEmitter<any>();
+  
+  ngOnInit() {
+
+  }
+  /**
+   * send event to edit a book
+   * @param book 
+   */
+  private editBook(book){
+    this.edit.emit({book: book});
+  }
 }

@@ -1,4 +1,5 @@
 <div class="container c12 vp50" id="mainPage">
     <h1 class="hfs45 title mb40">Books</h1>
-      <app-card-book [books]="books" class="w100 inrowf"></app-card-book>
+      <app-card-book [books]="books" class="w100 inrowf" (edit)="editBook($event)"></app-card-book>
+      <app-modal [book]="selectedBook" *ngIf="isOpen"></app-modal>
 </div>
