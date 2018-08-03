@@ -81,6 +81,15 @@ export class MainPageComponent implements OnInit {
     })
     this.isOpenDelete = false;
   }
+  /**
+   * Add new book to the list
+   * @param book 
+   */
+  addNewBook(book){
+    let id = this.books[this.books.length-1].id;
+    book.id = id+1;
+    this.books.push(book)
+  }
 
   /**
    * displaying the books

@@ -8,6 +8,7 @@
         *ngIf="isOpen"
         (saveChanges)="saveChanges($event)"
         (close)="closeModal($event)"
+        (addBook)="addNewBook($event)"
       ></app-modal>
       <app-modal-delete (removeMe)="removeMe($event)"
         (close)="closeModal($event)"

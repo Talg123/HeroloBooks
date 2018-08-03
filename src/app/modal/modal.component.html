@@ -1,6 +1,7 @@
 <div class="modal" [ngClass]="{open: isOpen}">
   <div class="modalTitle relative">
-    <h3 class="ctw hfs25">{{ tempBook["Book Title"] }}</h3>
+    <h3 class="ctw hfs25" *ngIf="book['Book Title']">{{ tempBook["Book Title"] }}</h3>
+    <h3 class="ctw hfs25" *ngIf="!book['Book Title']">Add New Book</h3>    
     <mat-icon (click)="closeMe()">close</mat-icon>
   </div>
   <div class="modalBody">

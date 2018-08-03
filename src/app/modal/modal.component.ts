@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
     this.createForm();    
     if(!this.book["Book Title"]){
       this.book = new Book;
-      this.book["Book Title"] = "Add new Book";
+      this.tempBook = {...this.book};      
       this.flag = true;
     }else{
       this.flag = false;
