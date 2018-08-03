@@ -18,6 +18,7 @@ export class ModalComponent implements OnInit {
 
   @Input() book: Book;
   @Input() isOpen: boolean;
+  @Input() books: Array<Book>;
   @Output() close = new EventEmitter<any>();
   @Output() saveChanges = new EventEmitter<any>();
 
@@ -60,9 +61,24 @@ export class ModalComponent implements OnInit {
    */
   save(form):void{
     if(form.valid){
-      this.saveChanges.emit(this.tempBook);
-      this.notification.success("Saved Changes!");
-      this.closeMe();
+      if(this.checkTitle(this.tempBook["Book Title"],this.tempBook.id)){
+        this.saveChanges.emit(this.tempBook);
+        this.notification.success("Saved Changes!");
+        this.closeMe();
+      }else{
+        this.notification.error("Title exists");
+      }
     }
+  }
+
+  private checkTitle(bookTitle,id):boolean{
+    let result = true;
+    this.books.forEach(book=>{
+      if(book["Book Title"] == bookTitle && book.id != id){
+        result = false;
+        return;
+      }
+    })
+    return result;
   }
 }

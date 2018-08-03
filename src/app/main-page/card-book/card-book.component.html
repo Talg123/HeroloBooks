@@ -1,19 +1,23 @@
 <div *ngFor="let book of books" class="col2s30 mb20 myCard">
     <div class="bgcr p10 inrowf">
-      <h4 class="hfs30 fw-bold ctw">{{ book["Book Title"]}}</h4>
-      <span (click)="editBook(book)"><mat-icon class="cp">more_vert</mat-icon></span>
+      <h4 class="hfs30 fw-medium ctw">{{ book["Book Title"]}}</h4>
+      <span >
+          <mat-icon (click)="editBook(book)" class="cp">more_vert</mat-icon>
+          <mat-icon (click)="removeBook(book)" class="cp">remove</mat-icon>
+      </span>
+    
     </div>
     <div class="flex fdc p10">
       <span class="sflex w100">
-          <h5 class="hfs20 ctb mr10 fw-bold">ID:</h5>
+          <h5 class="hfs20 ctb mr10 fw-medium">ID:</h5>
           <h6 class="hfs20 ctn">{{ book.id }}</h6>
       </span>
       <span class="sflex w100">
-          <h5 class="hfs20 ctb mr10 fw-bold">Book Author:</h5>
+          <h5 class="hfs20 ctb mr10 fw-medium">Book Author:</h5>
           <h6 class="hfs20 ctn">{{ book['Author Name'] }}</h6>
       </span>
       <span class="sflex w100">
-          <h5 class="hfs20 ctb mr10 fw-bold">Published Date:</h5>
+          <h5 class="hfs20 ctb mr10 fw-medium">Published Date:</h5>
           <h6 class="hfs20 ctn">{{ book['Published Date'] | date: "dd/MM/yyyy" }}</h6>
       </span>
       

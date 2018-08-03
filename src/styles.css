@@ -706,14 +706,15 @@ input {
 mat-icon {
   color: #fff;
 }
-app-modal {
+app-modal,
+app-modal-delete {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
 }
-app-modal .modal {
+.modal {
   transition: all 1s ease;
   opacity: 0;
   width: 90%;
@@ -728,24 +729,30 @@ app-modal .modal {
   transform: translate(-50%, -50%);
   border-radius: 5px;
 }
-app-modal .modal.open {
+.modal.open {
   opacity: 1;
 }
-app-modal .modal .modalTitle {
-  height: 35px;
+.modal.delete {
+  height: 100px;
+}
+.modal.delete .modalBody {
+  padding: 10px;
+}
+.modal .modalTitle {
+  min-height: 35px;
   width: 100%;
   padding: 5px 10px;
   background-color: #EE1061;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-app-modal .modal .modalTitle mat-icon {
+.modal .modalTitle mat-icon {
   position: absolute;
   cursor: pointer;
   right: 10px;
   top: 5px;
 }
-app-modal .modal .modalBody {
+.modal .modalBody {
   padding: 5px 20px;
 }
 .errorBox {

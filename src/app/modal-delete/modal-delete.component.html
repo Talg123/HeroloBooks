@@ -1,0 +1,10 @@
+<div class="modal delete" [ngClass]="{open: isOpenDelete}">
+  <div class="modalTitle relative">
+    <h3 class="ctw hfs25">{{ book["Book Title"] }}</h3>
+    <mat-icon (click)="closeMe()">close</mat-icon>
+  </div>
+  <div class="modalBody sflex aic jcc">
+      <button type="button" (click)="remove()" class="stdButton green hfs20 fw-medium mr20">Delete Book</button>
+      <button type="button" (click)="closeMe()" class="stdButton red hfs20 fw-medium">Cancel</button>
+  </div>
+</div>

@@ -300,48 +300,53 @@ mat-icon{
   color: #fff;
 }
 
-app-modal{
+app-modal,app-modal-delete{
   position: absolute;
   top:0;
   bottom:0;
   right: 0;
   left:0;
-    .modal{
-      transition: all 1s ease;
-      opacity: 0;
-        &.open{
-          opacity: 1;
-        }
-        width: 90%;
-        max-width: 500px;
-        height: 100%;
-        max-height: 400px;
-        position: fixed;
-        top: 50%;
-        left:50%;
-        background-color: #fff;
-        box-shadow: 0px 3px 6px rgba(0,0,0,0.20);
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-
-        .modalTitle{
-          height: 35px;
-          width:100%;
-          padding:5px 10px;
-          background-color: @redColor;
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-          mat-icon{
-            position: absolute;
-            //like the padding
-            cursor: pointer;
-            right: 10px;
-            top: 5px;
-          }
-        }
-        .modalBody{
-          padding: 5px 20px;
-        }
+}
+.modal{
+  transition: all 1s ease;
+  opacity: 0;
+    &.open{
+      opacity: 1;
+    }
+    width: 90%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 400px;
+    position: fixed;
+    top: 50%;
+    left:50%;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.20);
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    &.delete{
+      height: 100px;
+      .modalBody{
+        padding: 10px;
+      }
+    }
+    .modalTitle{
+      min-height: 35px;
+      width:100%;
+      padding:5px 10px;
+      background-color: @redColor;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      mat-icon{
+        position: absolute;
+        //like the padding
+        cursor: pointer;
+        right: 10px;
+        top: 5px;
+      }
+    }
+    .modalBody{
+      padding: 5px 20px;
     }
 }
 

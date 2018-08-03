@@ -1,10 +1,17 @@
 <div class="container c12 vp50" id="mainPage">
     <h1 class="hfs45 title mb40">Books</h1>
-      <app-card-book [books]="books" class="w100 inrowf" (edit)="editBook($event)"></app-card-book>
-      <app-modal [book]="selectedBook" 
+      <app-card-book [books]="books" class="w100 inrowf" (edit)="editBook($event)" (remove)="removeBook($event)"></app-card-book>
+      <app-modal 
+        [book]="selectedBook"
+        [books]="books"
         [isOpen]="isOpen"
         *ngIf="isOpen"
         (saveChanges)="saveChanges($event)"
         (close)="closeModal($event)"
       ></app-modal>
+      <app-modal-delete (removeMe)="removeMe($event)"
+        (close)="closeModal($event)"
+        [book]="selectedBook"
+        [isOpenDelete]="isOpenDelete"
+        *ngIf="isOpenDelete"></app-modal-delete>
 </div>

@@ -13,12 +13,14 @@ export class MainPageComponent implements OnInit {
   public load: Boolean;
   public selectedBook: Book;
   public isOpen: Boolean;
+  public isOpenDelete: Boolean;
 
   constructor(private api: ApiService) {
    }
 
   ngOnInit() {
-    this.isOpen = false;    
+    this.isOpen = false;
+    this.isOpenDelete = false;
     this.load = true;
     if(!this.books){
       this.api.getList().subscribe(
@@ -47,7 +49,30 @@ export class MainPageComponent implements OnInit {
    * @param event 
    */
   closeModal(event){
-    this.isOpen = event.isOpen;
+    this.isOpen = false;
+    this.isOpenDelete = false;
+  }
+
+  /**
+   * open remove modal
+   * @param book 
+   */
+  removeBook(book){
+    this.isOpenDelete = true;
+    this.selectedBook = book.book;
+  }
+
+  /**
+   * remove book from list
+   * @param event 
+   */
+  removeMe(event){
+    this.books.forEach((book,index)=>{
+      if(book.id == event.book.id){
+        this.books.splice(index,1);
+      }
+    })
+    this.isOpenDelete = false;
   }
 
   /**

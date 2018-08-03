@@ -11,7 +11,8 @@ export class CardBookComponent implements OnInit {
 
   @Input() books: any;
   @Output() edit = new EventEmitter<any>();
-  
+  @Output() remove = new EventEmitter<any>();
+
   ngOnInit() {
 
   }
@@ -21,5 +22,9 @@ export class CardBookComponent implements OnInit {
    */
   private editBook(book){
     this.edit.emit({book: book});
+  }
+
+  private removeBook(book){
+    this.remove.emit({book: book});
   }
 }
