@@ -14,6 +14,8 @@ import { MatFormField, MatFormFieldControl, MatInputModule, MatFormFieldModule, 
   MAT_DATE_LOCALE, 
   MatIconModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Notification} from '../services/notification.service';
+import * as $ from 'jquery'
 
   
 
@@ -34,7 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatInputModule,MatFormFieldModule,MatDatepickerModule,MatNativeDateModule,MatIconModule
   ],
-  providers: [ApiService,{provide: MAT_DATE_LOCALE, useValue: 'he-HE'}],
+  providers: [ApiService,{provide: MAT_DATE_LOCALE, useValue: 'he-HE'},Notification],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {  } from 'events';
 import { Book } from '../../objects/book.object';
+import {Notification} from '../../services/notification.service'
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,7 @@ export class ModalComponent implements OnInit {
   public BookForm : any;
   public tempBook: Book;
   
-  constructor() { }
+  constructor(private notification: Notification) { }
 
   @Input() book: Book;
   @Input() isOpen: boolean;
@@ -60,6 +61,7 @@ export class ModalComponent implements OnInit {
   save(form):void{
     if(form.valid){
       this.saveChanges.emit(this.tempBook);
+      this.notification.success("Saved Changes!");
       this.closeMe();
     }
   }

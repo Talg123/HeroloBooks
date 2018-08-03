@@ -272,6 +272,27 @@ input{
   box-shadow: 0px 3px 6px #ccc;
 }
 
+.stdButton{
+  padding: 10px calc(15px + 1vw);
+  border: 1px solid;
+  border-radius: 52px;
+  transition: all .5s ease;
+  &.green{
+    background-color: @greenColor;
+    color: #fff;
+    &:hover{
+      background-color: lighten(@greenColor, 15%);
+    }
+  }
+  &.red{
+    background-color: @redColor;
+    color: #fff;
+    &:hover{
+      background-color: lighten(@redColor, 15%);
+    }
+  }
+}
+
 .mat-form-field{
   width: 100%;
 }
@@ -294,7 +315,7 @@ app-modal{
         width: 90%;
         max-width: 500px;
         height: 100%;
-        max-height: 500px;
+        max-height: 400px;
         position: fixed;
         top: 50%;
         left:50%;
@@ -319,7 +340,62 @@ app-modal{
           }
         }
         .modalBody{
-          padding: 5px 10px;
+          padding: 5px 20px;
         }
     }
+}
+
+//notification//
+.errorBox{
+  position: fixed;
+  bottom: -500px ;
+  left:0;
+  width: 100%;
+  padding: 18px 23px;
+  color: #fff;
+  transition: all .5s linear;
+  &.error{
+    background-color: @redColor;
+  }
+  &.success{
+    background-color: @greenColor;
+  }
+  &.show{
+    bottom: 0px;
+  }
+  .w100{
+    width: 100%;
+    a{
+      cursor: pointer;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      background-color: transparent;
+      padding: 13px 27px;
+      font-weight: 500;
+      color: #fff;
+      .hfs20;
+      transition: all .3s linear;
+      &:hover{
+        background-color: #fff;
+        color: #EA0032;
+        text-decoration: none;
+      }
+    }
+    span{
+      padding: 13px 27px;
+      font-weight: 500;
+    }
+    mat-icon{
+      position: absolute;
+      right:15px;
+      top: 15px;
+      cursor: pointer;
+      width: 15px;
+      height: 15px;
+      transition: all .5s ease;
+      &:hover{
+        transform: scale(1.4) rotate(360deg);
+      }
+    }
+  }
 }

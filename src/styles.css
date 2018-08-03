@@ -680,6 +680,26 @@ input {
   padding: 10px 20px;
   box-shadow: 0px 3px 6px #ccc;
 }
+.stdButton {
+  padding: 10px calc(16px);
+  border: 1px solid;
+  border-radius: 52px;
+  transition: all .5s ease;
+}
+.stdButton.green {
+  background-color: #2ABF97;
+  color: #fff;
+}
+.stdButton.green:hover {
+  background-color: #5bdbb8;
+}
+.stdButton.red {
+  background-color: #EE1061;
+  color: #fff;
+}
+.stdButton.red:hover {
+  background-color: #f45790;
+}
 .mat-form-field {
   width: 100%;
 }
@@ -699,7 +719,7 @@ app-modal .modal {
   width: 90%;
   max-width: 500px;
   height: 100%;
-  max-height: 500px;
+  max-height: 400px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -726,5 +746,59 @@ app-modal .modal .modalTitle mat-icon {
   top: 5px;
 }
 app-modal .modal .modalBody {
-  padding: 5px 10px;
+  padding: 5px 20px;
+}
+.errorBox {
+  position: fixed;
+  bottom: -500px;
+  left: 0;
+  width: 100%;
+  padding: 18px 23px;
+  color: #fff;
+  transition: all .5s linear;
+}
+.errorBox.error {
+  background-color: #EE1061;
+}
+.errorBox.success {
+  background-color: #2ABF97;
+}
+.errorBox.show {
+  bottom: 0px;
+}
+.errorBox .w100 {
+  width: 100%;
+}
+.errorBox .w100 a {
+  cursor: pointer;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  background-color: transparent;
+  padding: 13px 27px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 20px;
+  font-size: calc(13px + ((20 - 13) * 0.052166vw));
+  transition: all .3s linear;
+}
+.errorBox .w100 a:hover {
+  background-color: #fff;
+  color: #EA0032;
+  text-decoration: none;
+}
+.errorBox .w100 span {
+  padding: 13px 27px;
+  font-weight: 500;
+}
+.errorBox .w100 mat-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  transition: all .5s ease;
+}
+.errorBox .w100 mat-icon:hover {
+  transform: scale(1.4) rotate(360deg);
 }

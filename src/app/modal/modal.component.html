@@ -4,14 +4,14 @@
     <mat-icon (click)="closeMe()">close</mat-icon>
   </div>
   <div class="modalBody">
-    <form [formGroup]="BookForm" (ngSubmit)="save(BookForm)">
-      <div class="w100">
+    <form [formGroup]="BookForm" class="mt20" (ngSubmit)="save(BookForm)">
+      <div class="w100 mb20">
           <mat-form-field>
               <input matInput placeholder="Enter Book Title" type="text" formControlName="title" [(ngModel)]="tempBook['Book Title']">
               <mat-error *ngIf="BookForm.get('title').hasError('required')">Cannot be empty</mat-error>
           </mat-form-field>
       </div>
-      <div class="w100">
+      <div class="w100 mb20">
         <mat-form-field>
           <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="tempBook['Published Date']" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -19,13 +19,16 @@
           <mat-error *ngIf="BookForm.get('date').hasError('required')">Cannot be empty</mat-error>          
         </mat-form-field>
       </div>
-      <div class="w100">
+      <div class="w100 mb20">
         <mat-form-field>
             <input matInput placeholder="Enter Book Author" type="text" formControlName="author" [(ngModel)]="tempBook['Author Name']">
             <mat-error *ngIf="BookForm.get('author').hasError('required')">Cannot be empty</mat-error>            
         </mat-form-field>
       </div>
-      <button type="submit" class="stdButton green hfs20 fw-medium">Save Changes</button>
+      <div class="w100 sflex jcc">
+          <button type="submit" class="stdButton green hfs20 fw-medium mr20">Save Changes</button>
+          <button type="button" (click)="closeMe()" class="stdButton red hfs20 fw-medium">Cancel</button>
+      </div>
     </form>
   </div>
 </div>
