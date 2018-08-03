@@ -1,5 +1,5 @@
 <div class="container c12 vp50" id="mainPage">
-    <h1 class="hfs45 title mb40">Books</h1>
+    <h1 class="hfs45 title mb40">Books <mat-icon class="cp" (click)="newBook()">add</mat-icon></h1>
       <app-card-book [books]="books" class="w100 inrowf" (edit)="editBook($event)" (remove)="removeBook($event)"></app-card-book>
       <app-modal 
         [book]="selectedBook"

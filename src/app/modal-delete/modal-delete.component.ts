@@ -1,5 +1,6 @@
 import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { Book } from '../../objects/book.object';
+import { Notification } from '../../services/notification.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Book } from '../../objects/book.object';
 })
 export class ModalDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notification: Notification) { }
   @Input() book: Book;
   @Input() isOpenDelete: boolean;
   @Output() close = new EventEmitter<any>();
@@ -28,5 +29,6 @@ export class ModalDeleteComponent implements OnInit {
    */
   remove():void{
     this.removeMe.emit({book: this.book});
+    this.notification.success("Book Deleted");
   }
 }

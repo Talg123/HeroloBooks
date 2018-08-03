@@ -45,6 +45,13 @@ export class MainPageComponent implements OnInit {
     })
   }
   /**
+   * Add new book
+   */
+  newBook(){
+    this.selectedBook = new Book;
+    this.isOpen = true;
+  }
+  /**
    * listen to the event and close the modal
    * @param event 
    */

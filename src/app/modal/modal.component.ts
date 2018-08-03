@@ -13,6 +13,7 @@ export class ModalComponent implements OnInit {
 
   public BookForm : any;
   public tempBook: Book;
+  public flag: boolean;
   
   constructor(private notification: Notification) { }
 
@@ -21,12 +22,16 @@ export class ModalComponent implements OnInit {
   @Input() books: Array<Book>;
   @Output() close = new EventEmitter<any>();
   @Output() saveChanges = new EventEmitter<any>();
+  @Output() addBook = new EventEmitter<any>();
 
   ngOnInit() {
     this.createForm();    
     if(!this.book["Book Title"]){
+      this.book = new Book;
       this.book["Book Title"] = "Add new Book";
+      this.flag = true;
     }else{
+      this.flag = false;
       //parse it into new temp var to commit changes only if submit
       this.tempBook = {...this.book};
       this.createDate();
@@ -62,8 +67,13 @@ export class ModalComponent implements OnInit {
   save(form):void{
     if(form.valid){
       if(this.checkTitle(this.tempBook["Book Title"],this.tempBook.id)){
-        this.saveChanges.emit(this.tempBook);
+        if(this.flag){
+          this.addBook.emit(this.tempBook);
+          this.notification.success("Book Added!");          
+        }else{
         this.notification.success("Saved Changes!");
+        this.saveChanges.emit(this.tempBook);
+        }
         this.closeMe();
       }else{
         this.notification.error("Title exists");
