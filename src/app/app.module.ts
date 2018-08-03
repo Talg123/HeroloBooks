@@ -16,7 +16,6 @@ import { MatFormField, MatFormFieldControl, MatInputModule, MatFormFieldModule, 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Notification} from '../services/notification.service';
 import * as $ from 'jquery';
-import { CleantitlePipe } from '../pipes/cleantitle.pipe';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component'
 
   
@@ -27,7 +26,6 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component'
     MainPageComponent,
     CardBookComponent,
     ModalComponent,
-    CleantitlePipe,
     ModalDeleteComponent,
   ],
   imports: [

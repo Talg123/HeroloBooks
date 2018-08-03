@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http: Http) { }
 
   public getList(){
-    return this.http.get('https://api.myjson.com/bins/p2vvs');
+    return this.http.get('https://api.myjson.com/bins/l15qo');
               
   }
 

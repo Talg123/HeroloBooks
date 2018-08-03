@@ -14,7 +14,7 @@ export class Notification {
     public success(message){
         $("app-root").append("<div class='errorBox success inrowf'><div class='w100 sflex jcc aic'>" +
              message +
-            "<img class='closeme' src=\"/assets/icons/Close.svg\" alt=''></div></div>");
+            "<img class='closeme' src=\"../assets/icons/Close.svg\" alt=''></div></div>");
         setTimeout(()=>{
             $(".errorBox").addClass("show");
         },500);
@@ -38,7 +38,7 @@ export class Notification {
     public error(message){
         $("app-root").append("<div class='errorBox error inrowf'><div class='w100 sflex jcc aic'>" +
             "<span class='hfs15 sflex w100 aic smjcsb jcc'>"+ message +"</span>" +
-            "<img class='closeme' src=\"/assets/icons/Close.svg\" alt=''></div></div>");
+            "<img class='closeme' src=\"../assets/icons/Close.svg\" alt=''></div></div>");
         setTimeout(()=>{
             $(".errorBox").addClass("show");
         },500);

@@ -35,7 +35,10 @@ export class MainPageComponent implements OnInit {
     }
 
   }
-
+  /**
+   * Save changes and edit the books list
+   * @param change 
+   */
   saveChanges(change){
     this.selectedBook = change;
     this.books.forEach((book,index)=>{
@@ -55,7 +58,7 @@ export class MainPageComponent implements OnInit {
    * listen to the event and close the modal
    * @param event 
    */
-  closeModal(event){
+  closeModal(event):void{
     this.isOpen = false;
     this.isOpenDelete = false;
   }
@@ -64,7 +67,7 @@ export class MainPageComponent implements OnInit {
    * open remove modal
    * @param book 
    */
-  removeBook(book){
+  removeBook(book):void{
     this.isOpenDelete = true;
     this.selectedBook = book.book;
   }
@@ -73,7 +76,7 @@ export class MainPageComponent implements OnInit {
    * remove book from list
    * @param event 
    */
-  removeMe(event){
+  removeMe(event):void{
     this.books.forEach((book,index)=>{
       if(book.id == event.book.id){
         this.books.splice(index,1);
@@ -85,24 +88,41 @@ export class MainPageComponent implements OnInit {
    * Add new book to the list
    * @param book 
    */
-  addNewBook(book){
+  addNewBook(book : Book):void{
     let id = this.books[this.books.length-1].id;
+    book = this.titleDesign(book);
     book.id = id+1;
     this.books.push(book)
   }
 
   /**
    * displaying the books
+   * and filtering the book title
    */
-  private displayBooks(){
+  private displayBooks():void{
+    this.books = this.books.filter(book=>{
+      return this.titleDesign(book);
+    });
+
     this.load = false;
   }
   /**
    * Edit the book we selected
    * @param book - the book to edit
    */
-  public editBook(book){
+  public editBook(book):void{
     this.selectedBook = book.book;
+    this.selectedBook = this.titleDesign(this.selectedBook);
     this.isOpen = true;
+  }
+  /**
+   * return filtered book title
+   * @param book 
+   */
+  private titleDesign(book : Book) : Book{
+    book["Book Title"] = book["Book Title"].replace(/[\W]+/g,"");
+    book["Book Title"] = book["Book Title"].toLowerCase();
+    book["Book Title"] = book["Book Title"].charAt(0).toUpperCase() + book["Book Title"].slice(1);
+    return book;
   }
 }

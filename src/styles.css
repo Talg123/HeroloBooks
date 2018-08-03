@@ -674,8 +674,8 @@ input {
   overflow: hidden;
 }
 .title {
-  color: #24B0EB;
-  background-color: #88E8C7;
+  color: #fff;
+  background-color: #EE1061;
   border-radius: 5px;
   padding: 10px 20px;
   box-shadow: 0px 3px 6px #ccc;
@@ -797,7 +797,7 @@ app-modal-delete {
   padding: 13px 27px;
   font-weight: 500;
 }
-.errorBox .w100 mat-icon {
+.errorBox .w100 img {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -806,6 +806,11 @@ app-modal-delete {
   height: 15px;
   transition: all .5s ease;
 }
-.errorBox .w100 mat-icon:hover {
+.errorBox .w100 img:hover {
   transform: scale(1.4) rotate(360deg);
+}
+@media (max-width: 600px) {
+  .smw100 {
+    width: 100%;
+  }
 }
