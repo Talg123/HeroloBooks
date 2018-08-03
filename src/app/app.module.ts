@@ -9,7 +9,13 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { CardBookComponent } from './main-page/card-book/card-book.component';
 import { ModalComponent } from './modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormField, MatFormFieldControl, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
+  MAT_DATE_LOCALE, 
+  MatIconModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+  
 
 @NgModule({
   declarations: [
@@ -20,11 +26,15 @@ import { ModalComponent } from './modal/modal.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,MatFormFieldModule,MatDatepickerModule,MatNativeDateModule,MatIconModule
   ],
-  providers: [ApiService],
+  providers: [ApiService,{provide: MAT_DATE_LOCALE, useValue: 'he-HE'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

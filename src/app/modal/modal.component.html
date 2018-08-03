@@ -1,8 +1,31 @@
-<div class="modal">
-  <div class="modalTitle">
-    <h3 class="ctw hfs25">{{ book["Book Title"] }}</h3>
+<div class="modal" [ngClass]="{open: isOpen}">
+  <div class="modalTitle relative">
+    <h3 class="ctw hfs25">{{ tempBook["Book Title"] }}</h3>
+    <mat-icon (click)="closeMe()">close</mat-icon>
   </div>
   <div class="modalBody">
-    
+    <form [formGroup]="BookForm" (ngSubmit)="save(BookForm)">
+      <div class="w100">
+          <mat-form-field>
+              <input matInput placeholder="Enter Book Title" type="text" formControlName="title" [(ngModel)]="tempBook['Book Title']">
+              <mat-error *ngIf="BookForm.get('title').hasError('required')">Cannot be empty</mat-error>
+          </mat-form-field>
+      </div>
+      <div class="w100">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="tempBook['Published Date']" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="BookForm.get('date').hasError('required')">Cannot be empty</mat-error>          
+        </mat-form-field>
+      </div>
+      <div class="w100">
+        <mat-form-field>
+            <input matInput placeholder="Enter Book Author" type="text" formControlName="author" [(ngModel)]="tempBook['Author Name']">
+            <mat-error *ngIf="BookForm.get('author').hasError('required')">Cannot be empty</mat-error>            
+        </mat-form-field>
+      </div>
+      <button type="submit" class="stdButton green hfs20 fw-medium">Save Changes</button>
+    </form>
   </div>
 </div>

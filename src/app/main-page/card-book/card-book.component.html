@@ -1,7 +1,7 @@
 <div *ngFor="let book of books" class="col2s30 mb20 myCard">
     <div class="bgcr p10 inrowf">
       <h4 class="hfs30 fw-bold ctw">{{ book["Book Title"]}}</h4>
-      <span (click)="editBook(book)">Edit</span>
+      <span (click)="editBook(book)"><mat-icon class="cp">more_vert</mat-icon></span>
     </div>
     <div class="flex fdc p10">
       <span class="sflex w100">

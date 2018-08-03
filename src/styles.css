@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
   margin: 0;
   padding: 0;
@@ -664,6 +665,9 @@ input {
 .mr40 {
   margin-right: 40px;
 }
+.relative {
+  position: relative;
+}
 .myCard {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -676,6 +680,12 @@ input {
   padding: 10px 20px;
   box-shadow: 0px 3px 6px #ccc;
 }
+.mat-form-field {
+  width: 100%;
+}
+mat-icon {
+  color: #fff;
+}
 app-modal {
   position: absolute;
   top: 0;
@@ -684,6 +694,8 @@ app-modal {
   left: 0;
 }
 app-modal .modal {
+  transition: all 1s ease;
+  opacity: 0;
   width: 90%;
   max-width: 500px;
   height: 100%;
@@ -696,12 +708,22 @@ app-modal .modal {
   transform: translate(-50%, -50%);
   border-radius: 5px;
 }
+app-modal .modal.open {
+  opacity: 1;
+}
 app-modal .modal .modalTitle {
+  height: 35px;
   width: 100%;
   padding: 5px 10px;
   background-color: #EE1061;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+app-modal .modal .modalTitle mat-icon {
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+  top: 5px;
 }
 app-modal .modal .modalBody {
   padding: 5px 10px;
