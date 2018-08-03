@@ -20,11 +20,14 @@ export class CardBookComponent implements OnInit {
    * send event to edit a book
    * @param book 
    */
-  private editBook(book){
+  private editBook(book) :void{
     this.edit.emit({book: book});
   }
-
-  private removeBook(book){
+  /**
+   * send event to remove a book
+   * @param book 
+   */
+  private removeBook(book) :void{
     this.remove.emit({book: book});
   }
 }

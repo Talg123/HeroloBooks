@@ -8,7 +8,9 @@ import {Http} from '@angular/http';
 export class ApiService {
 
   constructor(private http: Http) { }
-
+  /**
+   * get the books list with http request
+   */
   public getList(){
     return this.http.get('https://api.myjson.com/bins/l15qo');
               

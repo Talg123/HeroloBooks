@@ -80,7 +80,11 @@ export class ModalComponent implements OnInit {
       }
     }
   }
-
+  /**
+   * Check if title already exists
+   * @param bookTitle 
+   * @param id 
+   */
   private checkTitle(bookTitle,id):boolean{
     let result = true;
     this.books.forEach(book=>{
