@@ -41,6 +41,7 @@ export class MainPageComponent implements OnInit {
    */
   saveChanges(change){
     this.selectedBook = change;
+    this.selectedBook = this.titleDesign(this.selectedBook);    
     this.books.forEach((book,index)=>{
       if(book.id == this.selectedBook.id){
         this.books[index] = this.selectedBook;
@@ -112,7 +113,6 @@ export class MainPageComponent implements OnInit {
    */
   public editBook(book):void{
     this.selectedBook = book.book;
-    this.selectedBook = this.titleDesign(this.selectedBook);
     this.isOpen = true;
   }
   /**
