@@ -122,7 +122,12 @@ export class MainPageComponent implements OnInit {
   private titleDesign(book : Book) : Book{
     book["Book Title"] = book["Book Title"].replace(/[^a-zA-Z0-9\s]+/g,"");
     book["Book Title"] = book["Book Title"].toLowerCase();
-    book["Book Title"] = book["Book Title"].charAt(0).toUpperCase() + book["Book Title"].slice(1);
+    let arr = book["Book Title"].split(" ");
+    arr = arr.map(word=>{
+      word = word.charAt(0).toUpperCase() + word.substr(1);
+      return word;
+    })
+    book["Book Title"] = arr.join(" ");
     return book;
   }
 }
