@@ -88,7 +88,7 @@ export class ModalComponent implements OnInit {
   private checkTitle(bookTitle,id):boolean{
     let result = true;
     this.books.forEach(book=>{
-      if(book["Book Title"] == bookTitle && book.id != id){
+      if(book["Book Title"].toLowerCase() == bookTitle.toLowerCase() && book.id != id){
         result = false;
         return;
       }
